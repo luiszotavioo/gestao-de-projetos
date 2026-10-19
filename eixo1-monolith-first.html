@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eixo 1: Monolith First | Arquitetura & Gestão</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-dot"></span>
+        <span data-pt="Arquitetura & Gestão" data-en="Architecture & Management">Arquitetura & Gestão</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link" data-pt="Início" data-en="Home">Início</a>
+        <a href="eixo1-monolith-first.html" class="nav-link active">Monolith First</a>
+        <a href="eixo2-micro-frontends.html" class="nav-link">Micro Frontends</a>
+        <a href="eixo3-layering.html" class="nav-link" data-pt="Camadas" data-en="Layering">Camadas</a>
+      </nav>
+
+      <div class="nav-controls">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" class="lang-btn active" data-lang="pt">PT</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow" data-pt="Eixo 1 • Microsserviços" data-en="Axis 1 • Microservices">Eixo 1 • Microsserviços</span>
+      <h1 data-pt="Monolith First: começar simples antes de dividir"
+          data-en="Monolith First: start simple before splitting">
+        Monolith First: começar simples antes de dividir
+      </h1>
+      <p class="hero-subtitle"
+         data-pt="Por que construir um monólito bem organizado no início do projeto reduz riscos e evita o custo prematuro de gerenciar microsserviços."
+         data-en="Why building a well-organized monolith at the start of a project reduces risks and avoids the premature cost of managing microservices.">
+        Por que construir um monólito bem organizado no início do projeto reduz riscos e evita o custo prematuro de gerenciar microsserviços.
+      </p>
+      <div class="hero-meta">
+        <a href="https://martinfowler.com/bliki/MonolithFirst.html" target="_blank" rel="noopener" class="btn btn-primary"
+           data-pt="Artigo original (Martin Fowler) ↗" data-en="Original article (Martin Fowler) ↗">
+          Artigo original (Martin Fowler) ↗
+        </a>
+        <a href="eixo2-micro-frontends.html" class="btn btn-outline"
+           data-pt="Próximo: Micro Frontends →" data-en="Next: Micro Frontends →">
+          Próximo: Micro Frontends →
+        </a>
+      </div>
+    </section>
+
+    <!-- 1. Ideia Central -->
+    <section class="content-box">
+      <div class="section-header">
+        <span class="section-label" data-pt="Parte 1" data-en="Part 1">Parte 1</span>
+        <h2 class="section-title" data-pt="Resumo da ideia central" data-en="Core idea summary">Resumo da ideia central</h2>
+      </div>
+
+      <div class="prose">
+        <p data-pt="Neste artigo, Martin Fowler observa um padrão muito comum no mercado: quase todos os sistemas de microsserviços que deram certo começaram como um <strong>monólito</strong> que cresceu e depois foi dividido. Por outro lado, projetos que tentaram nascer diretamente em microsserviços quase sempre enfrentaram sérias dificuldades."
+           data-en="In this article, Martin Fowler notes a very common pattern: almost all successful microservice systems started as a <strong>monolith</strong> that grew and was later broken up. Conversely, projects built as microservices from day one almost always ran into serious trouble.">
+          Neste artigo, Martin Fowler observa um padrão muito comum no mercado: quase todos os sistemas de microsserviços que deram certo começaram como um <strong>monólito</strong> que cresceu e depois foi dividido. Por outro lado, projetos que tentaram nascer diretamente em microsserviços quase sempre enfrentaram sérias dificuldades.
+        </p>
+        <p data-pt="Isso acontece por dois motivos principais. O primeiro é que microsserviços cobram um 'pedágio' de complexidade (o <strong>Microservice Premium</strong>): exigem automação avançada de deploy, comunicação via rede e vários bancos de dados, o que deixa o início do projeto mais lento. O segundo motivo é que, quando começamos um software novo, <strong>ainda não conhecemos bem as fronteiras do negócio</strong>. Ajustar limites entre módulos dentro de um monólito é simples; refazer divisões entre microsserviços já separados custa muito tempo."
+           data-en="This happens for two main reasons. First, microservices charge a complexity tax (the <strong>Microservice Premium</strong>): they require advanced deployment automation, network calls, and multiple databases, which slows down early development. Second, when starting a new software project, <strong>we rarely know the right domain boundaries upfront</strong>. Adjusting module boundaries inside a monolith is cheap; redrawing boundaries across separate microservices is very expensive.">
+          Isso acontece por dois motivos principais. O primeiro é que microsserviços cobram um 'pedágio' de complexidade (o <strong>Microservice Premium</strong>): exigem automação avançada de deploy, comunicação via rede e vários bancos de dados, o que deixa o início do projeto mais lento. O segundo motivo é que, quando começamos um software novo, <strong>ainda não conhecemos bem as fronteiras do negócio</strong>. Ajustar limites entre módulos dentro de um monólito é simples; refazer divisões entre microsserviços já separados custa muito tempo.
+        </p>
+        <p data-pt="A recomendação, portanto, é começar com um monólito bem modularizado, validar o sistema na prática e só separar em microsserviços as partes que realmente precisarem de escala e evolução independente."
+           data-en="The recommendation is to start with a well-modularized monolith, validate the system in practice, and only peel off microservices for the parts that truly need independent scale and evolution.">
+          A recomendação, portanto, é começar com um monólito bem modularizado, validar o sistema na prática e só separar em microsserviços as partes que realmente precisarem de escala e evolução independente.
+        </p>
+      </div>
+
+      <!-- Diagrama Limpo e Claro -->
+      <div class="svg-container">
+        <svg viewBox="0 0 820 300" width="820" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Curva Monolith vs Microservices">
+          <!-- Left Box: Productivity Curve -->
+          <rect x="10" y="10" width="385" height="280" rx="10" fill="#ffffff" stroke="#e4e4e0" />
+          <text x="30" y="38" fill="#18181b" font-size="13" font-weight="700">Produtividade vs. Complexidade</text>
+
+          <line x1="50" y1="245" x2="365" y2="245" stroke="#a1a1aa" stroke-width="1.5" />
+          <line x1="50" y1="245" x2="50" y2="60" stroke="#a1a1aa" stroke-width="1.5" />
+          <text x="165" y="270" fill="#71717a" font-size="11.5" font-weight="600">Complexidade →</text>
+          <text x="24" y="175" fill="#71717a" font-size="11.5" font-weight="600" transform="rotate(-90 24,175)">Produtividade →</text>
+
+          <!-- Monolith Curve -->
+          <path d="M 55 110 Q 155 65, 225 140 T 355 230" fill="none" stroke="#1d4ed8" stroke-width="3" />
+          <text x="85" y="85" fill="#1d4ed8" font-size="12" font-weight="700">Monólito</text>
+
+          <!-- Microservices Curve -->
+          <path d="M 55 185 Q 170 150, 225 140 T 355 120" fill="none" stroke="#0f766e" stroke-width="3" stroke-dasharray="6 4" />
+          <text x="255" y="112" fill="#0f766e" font-size="12" font-weight="700">Microsserviços</text>
+
+          <circle cx="222" cy="138" r="5" fill="#ffffff" stroke="#18181b" stroke-width="2.5" />
+          <line x1="222" y1="143" x2="222" y2="245" stroke="#d4d4d8" stroke-dasharray="4 4" />
+          <text x="155" y="232" fill="#71717a" font-size="10.5">Ponto onde compensa dividir</text>
+
+          <!-- Right Box: 3 Steps -->
+          <rect x="415" y="10" width="395" height="280" rx="10" fill="#ffffff" stroke="#e4e4e0" />
+          <text x="435" y="38" fill="#18181b" font-size="13" font-weight="700">Evolução Gradual (Monolith First)</text>
+
+          <rect x="435" y="58" width="355" height="62" rx="8" fill="#eff6ff" stroke="#bfdbfe" />
+          <text x="452" y="83" fill="#1d4ed8" font-size="12" font-weight="700">1. Iniciar com um Monólito Modular</text>
+          <text x="452" y="103" fill="#3f3f46" font-size="11.5">Valida o produto rápido e com menor custo inicial</text>
+
+          <rect x="435" y="134" width="355" height="62" rx="8" fill="#f0fdfa" stroke="#99f6e4" />
+          <text x="452" y="159" fill="#0f766e" font-size="12" font-weight="700">2. Descobrir e Ajustar Fronteiras</text>
+          <text x="452" y="179" fill="#3f3f46" font-size="11.5">Refatorar módulos no mesmo código até estabilizar</text>
+
+          <rect x="435" y="210" width="355" height="62" rx="8" fill="#fffbeb" stroke="#fde68a" />
+          <text x="452" y="235" fill="#b45309" font-size="12" font-weight="700">3. Extrair Microsserviços quando Necessário</text>
+          <text x="452" y="255" fill="#3f3f46" font-size="11.5">Separar apenas os módulos que exigem escala própria</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 2. Vantagens e Desvantagens -->
+    <section>
+      <div class="section-header">
+        <span class="section-label" data-pt="Parte 2" data-en="Part 2">Parte 2</span>
+        <h2 class="section-title" data-pt="Vantagens e desvantagens" data-en="Pros and cons">Vantagens e desvantagens</h2>
+      </div>
+
+      <div class="pros-cons-grid">
+        <div class="pc-card pros">
+          <div class="pc-title">
+            <span data-pt="Vantagens" data-en="Advantages">Vantagens</span>
+          </div>
+          <ul class="pc-list">
+            <li>
+              <span class="pc-badge">+</span>
+              <span data-pt="<strong>Rapidez nas primeiras entregas:</strong> A equipe foca no que gera valor para o usuário sem gastar semanas montando infraestrutura distribuída."
+                    data-en="<strong>Faster early delivery:</strong> The team focuses on user value without spending weeks setting up distributed infrastructure.">
+                <strong>Rapidez nas primeiras entregas:</strong> A equipe foca no que gera valor para o usuário sem gastar semanas montando infraestrutura distribuída.
+              </span>
+            </li>
+            <li>
+              <span class="pc-badge">+</span>
+              <span data-pt="<strong>Facilidade para corrigir divisões erradas:</strong> Mover código de um pacote para outro dentro do mesmo projeto é rápido e seguro."
+                    data-en="<strong>Easy boundary corrections:</strong> Moving code between packages inside the same project is fast and safe.">
+                <strong>Facilidade para corrigir divisões erradas:</strong> Mover código de um pacote para outro dentro do mesmo projeto é rápido e seguro.
+              </span>
+            </li>
+            <li>
+              <span class="pc-badge">+</span>
+              <span data-pt="<strong>Deploy e testes mais simples:</strong> Um único processo de publicação e testes ponta a ponta fáceis de rodar localmente."
+                    data-en="<strong>Simpler deployment and testing:</strong> A single release pipeline and straightforward local end-to-end testing.">
+                <strong>Deploy e testes mais simples:</strong> Um único processo de publicação e testes ponta a ponta fáceis de rodar localmente.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pc-card cons">
+          <div class="pc-title">
+            <span data-pt="Desvantagens" data-en="Disadvantages">Desvantagens</span>
+          </div>
+          <ul class="pc-list">
+            <li>
+              <span class="pc-badge">−</span>
+              <span data-pt="<strong>Risco de bagunça interna:</strong> Se a equipe não mantiver os módulos bem separados, o código vira um emaranhado difícil de dividir depois."
+                    data-en="<strong>Risk of internal tangling:</strong> If the team doesn't keep modules separated, the code turns into a tangled mess hard to split later.">
+                <strong>Risco de bagunça interna:</strong> Se a equipe não mantiver os módulos bem separados, o código vira um emaranhado difícil de dividir depois.
+              </span>
+            </li>
+            <li>
+              <span class="pc-badge">−</span>
+              <span data-pt="<strong>Acomodação com o monólito:</strong> A gestão pode adiar demais a separação em serviços mesmo quando o sistema já ficou grande demais."
+                    data-en="<strong>Postponing extraction too long:</strong> Management might delay splitting services even after the monolith becomes too large.">
+                <strong>Acomodação com o monólito:</strong> A gestão pode adiar demais a separação em serviços mesmo quando o sistema já ficou grande demais.
+              </span>
+            </li>
+            <li>
+              <span class="pc-badge">−</span>
+              <span data-pt="<strong>Limitação para muitas equipes simultâneas:</strong> Quando dezenas de pessoas alteram o mesmo projeto ao mesmo tempo, surgem conflitos de código."
+                    data-en="<strong>Bottlenecks for many simultaneous teams:</strong> When dozens of developers edit the same repository, merge conflicts increase.">
+                <strong>Limitação para muitas equipes simultâneas:</strong> Quando dezenas de pessoas alteram o mesmo projeto ao mesmo tempo, surgem conflitos de código.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Impacto na Gestão do Projeto -->
+    <section>
+      <div class="section-header">
+        <span class="section-label" data-pt="Parte 3" data-en="Part 3">Parte 3</span>
+        <h2 class="section-title" data-pt="Impacto na gestão do projeto" data-en="Impact on project management">Impacto na gestão do projeto</h2>
+      </div>
+
+      <div class="pm-grid">
+        <div class="pm-card">
+          <div class="pm-card-header">
+            <span class="pm-pillar-title" data-pt="Prazo" data-en="Schedule">Prazo</span>
+            <span class="pm-level level-low" data-pt="Curto prazo ágil" data-en="Fast short-term">Curto prazo ágil</span>
+          </div>
+          <p data-pt="Reduz bastante o tempo para colocar a primeira versão (MVP) no ar. No entanto, o gerente precisa prever espaço no cronograma futuro caso o sistema cresça e precise ter partes extraídas."
+             data-en="Greatly reduces the time required to launch the first version (MVP). However, the manager must reserve future roadmap capacity if parts need to be extracted later.">
+            Reduz bastante o tempo para colocar a primeira versão (MVP) no ar. No entanto, o gerente precisa prever espaço no cronograma futuro caso o sistema cresça e precise ter partes extraídas.
+          </p>
+        </div>
+
+        <div class="pm-card">
+          <div class="pm-card-header">
+            <span class="pm-pillar-title" data-pt="Custo" data-en="Cost">Custo</span>
+            <span class="pm-level level-low" data-pt="Econômico no início" data-en="Low initial cost">Econômico no início</span>
+          </div>
+          <p data-pt="Evita gastar orçamento logo no começo com múltiplos servidores, monitoramento complexo e infraestrutura pesada antes mesmo de o produto provar seu valor."
+             data-en="Avoids spending early budget on multiple servers, complex monitoring, and heavy infrastructure before the product proves its value.">
+            Evita gastar orçamento logo no começo com múltiplos servidores, monitoramento complexo e infraestrutura pesada antes mesmo de o produto provar seu valor.
+          </p>
+        </div>
+
+        <div class="pm-card">
+          <div class="pm-card-header">
+            <span class="pm-pillar-title" data-pt="Equipe" data-en="Team">Equipe</span>
+            <span class="pm-level level-low" data-pt="Time enxuto" data-en="Lean team">Time enxuto</span>
+          </div>
+          <p data-pt="Permite trabalhar com uma equipe menor e integrada, sem exigir especialistas dedicados apenas para cuidar de infraestrutura distribuída desde o primeiro dia."
+             data-en="Allows working with a smaller, cohesive team without needing dedicated specialists just to maintain distributed infrastructure from day one.">
+            Permite trabalhar com uma equipe menor e integrada, sem exigir especialistas dedicados apenas para cuidar de infraestrutura distribuída desde o primeiro dia.
+          </p>
+        </div>
+
+        <div class="pm-card">
+          <div class="pm-card-header">
+            <span class="pm-pillar-title" data-pt="Riscos" data-en="Risks">Riscos</span>
+            <span class="pm-level level-med" data-pt="Atenção à qualidade" data-en="Watch code quality">Atenção à qualidade</span>
+          </div>
+          <p data-pt="Diminui o risco de o projeto fracassar por excesso de complexidade inicial. O principal risco passa a ser a falta de organização interna do código conforme novas entregas são pedidas."
+             data-en="Lowers the risk of project failure from early over-engineering. The main risk becomes neglecting internal code organization as new features are requested.">
+            Diminui o risco de o projeto fracassar por excesso de complexidade inicial. O principal risco passa a ser a falta de organização interna do código conforme novas entregas são pedidas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Link para o Post Original -->
+    <section class="original-banner">
+      <div>
+        <h3 style="font-size:1.05rem;margin-bottom:0.2rem;"
+            data-pt="4. Post Original de Referência"
+            data-en="4. Original Reference Post">4. Post Original de Referência</h3>
+        <p style="color:var(--text-muted);font-size:0.88rem;">
+          Martin Fowler — MonolithFirst (martinfowler.com/bliki/MonolithFirst.html)
+        </p>
+      </div>
+      <a href="https://martinfowler.com/bliki/MonolithFirst.html" target="_blank" rel="noopener" class="btn btn-primary"
+         data-pt="Ler post original ↗"
+         data-en="Read original post ↗">
+        Ler post original ↗
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p data-pt="SENAI EAD • Gestão de Projetos • Eixo 1: Monolith First"
+       data-en="SENAI EAD • Project Management • Axis 1: Monolith First">
+      SENAI EAD • Gestão de Projetos • Eixo 1: Monolith First
+    </p>
+  </footer>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>

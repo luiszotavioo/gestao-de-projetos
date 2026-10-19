@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eixo 2: Micro Frontends | Arquitetura & Gestão</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-dot"></span>
+        <span data-pt="Arquitetura & Gestão" data-en="Architecture & Management">Arquitetura & Gestão</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link" data-pt="Início" data-en="Home">Início</a>
+        <a href="eixo1-monolith-first.html" class="nav-link">Monolith First</a>
+        <a href="eixo2-micro-frontends.html" class="nav-link active">Micro Frontends</a>
+        <a href="eixo3-layering.html" class="nav-link" data-pt="Camadas" data-en="Layering">Camadas</a>
+      </nav>
+
+      <div class="nav-controls">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" class="lang-btn active" data-lang="pt">PT</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow" data-pt="Eixo 2 • Fronteiras e Evolução" data-en="Axis 2 • Boundaries & Evolution">Eixo 2 • Fronteiras e Evolução</span>
+      <h1 data-pt="Micro Frontends: dividindo a interface entre equipes independentes"
+          data-en="Micro Frontends: dividing the interface across independent teams">
+        Micro Frontends: dividindo a interface entre equipes independentes
+      </h1>
+      <p class="hero-subtitle"
+         data-pt="Como organizar aplicações web grandes para que cada equipe seja responsável por uma parte completa do produto, do banco de dados até a tela."
+         data-en="How to organize large web applications so each team owns a complete slice of the product, from database to screen.">
+        Como organizar aplicações web grandes para que cada equipe seja responsável por uma parte completa do produto, do banco de dados até a tela.
+      </p>
+      <div class="hero-meta">
+        <a href="https://martinfowler.com/articles/micro-frontends.html" target="_blank" rel="noopener" class="btn btn-primary"
+           data-pt="Artigo original (martinfowler.com) ↗" data-en="Original article (martinfowler.com) ↗">
+          Artigo original (martinfowler.com) ↗
+        </a>
+        <a href="eixo3-layering.html" class="btn btn-outline"
+           data-pt="Próximo: Camadas (Layering) →" data-en="Next: Layering →">
+          Próximo: Camadas (Layering) →
+        </a>
+      </div>
+    </section>
+
+    <!-- 1. Ideia Central -->
+    <section class="content-box">
+      <div class="section-header">
+        <span class="section-label" data-pt="Parte 1" data-en="Part 1">Parte 1</span>
+        <h2 class="section-title" data-pt="Resumo da ideia central" data-en="Core idea summary">Resumo da ideia central</h2>
+      </div>
+
+      <div class="prose">
+        <p data-pt="Muitas empresas dividem o back-end em microsserviços para ganhar agilidade, mas continuam mantendo um único projeto gigante para o front-end. Na prática, essa interface única vira um gargalo: qualquer mudança no produto exige alinhar a equipe de front-end com várias equipes de back-end antes de publicar."
+           data-en="Many companies split their backend into microservices for agility, yet keep a single large codebase for the frontend. In practice, this unified UI becomes a bottleneck: any product change requires coordinating the frontend team with multiple backend teams before release.">
+          Muitas empresas dividem o back-end em microsserviços para ganhar agilidade, mas continuam mantendo um único projeto gigante para o front-end. Na prática, essa interface única vira um gargalo: qualquer mudança no produto exige alinhar a equipe de front-end com várias equipes de back-end antes de publicar.
+        </p>
+        <p data-pt="O conceito de <strong>Micro Frontends</strong> resolve isso aplicando a mesma ideia de independência para a interface. Em vez de separar as equipes por tecnologia (time de front-end vs. time de back-end), o sistema é dividido <strong>por áreas de negócio</strong> — como Busca, Catálogo de Produtos e Pagamento."
+           data-en="<strong>Micro Frontends</strong> solves this by bringing the same independence to the user interface. Instead of splitting teams by technology (frontend team vs. backend team), the system is divided <strong>by business area</strong> — such as Search, Product Catalog, and Checkout.">
+          O conceito de <strong>Micro Frontends</strong> resolve isso aplicando a mesma ideia de independência para a interface. Em vez de separar as equipes por tecnologia (time de front-end vs. time de back-end), o sistema é dividido <strong>por áreas de negócio</strong> — como Busca, Catálogo de Produtos e Pagamento.
+        </p>
+        <p data-pt="Assim, cada equipe cuida da sua funcionalidade de ponta a ponta e consegue atualizar sua parte da tela de forma autônoma, enquanto uma aplicação base (Container) junta todas essas partes para o usuário final."
+           data-en="Each team owns its feature end-to-end and can update its portion of the screen independently, while a base Container application brings those pieces together for the user.">
+          Assim, cada equipe cuida da sua funcionalidade de ponta a ponta e consegue atualizar sua parte da tela de forma autônoma, enquanto uma aplicação base (Container) junta todas essas partes para o usuário final.
+        </p>
+      </div>
+
+      <!-- Diagrama Claro -->
+      <div class="svg-container">
+        <svg viewBox="0 0 820 310" width="820" height="310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Monólito de Front-end vs Micro Frontends">
+          <!-- Left Box -->
+          <rect x="10" y="10" width="380" height="290" rx="10" fill="#ffffff" stroke="#e4e4e0" />
+          <text x="30" y="38" fill="#be123c" font-size="13" font-weight="700">Modelo Tradicional (Front-end Único)</text>
+
+          <rect x="35" y="58" width="330" height="65" rx="8" fill="#fff1f2" stroke="#fecdd3" />
+          <text x="95" y="86" fill="#18181b" font-size="12.5" font-weight="700">Front-end Monolítico</text>
+          <text x="72" y="106" fill="#71717a" font-size="11">1 equipe centralizando todas as telas</text>
+
+          <line x1="90" y1="123" x2="90" y2="165" stroke="#a1a1aa" stroke-width="1.5" />
+          <line x1="200" y1="123" x2="200" y2="165" stroke="#a1a1aa" stroke-width="1.5" />
+          <line x1="310" y1="123" x2="310" y2="165" stroke="#a1a1aa" stroke-width="1.5" />
+
+          <rect x="40" y="165" width="100" height="52" rx="6" fill="#f4f4f5" stroke="#d4d4d8" />
+          <text x="58" y="195" fill="#3f3f46" font-size="11.5" font-weight="600">API Busca</text>
+
+          <rect x="150" y="165" width="100" height="52" rx="6" fill="#f4f4f5" stroke="#d4d4d8" />
+          <text x="162" y="195" fill="#3f3f46" font-size="11.5" font-weight="600">API Catálogo</text>
+
+          <rect x="260" y="165" width="100" height="52" rx="6" fill="#f4f4f5" stroke="#d4d4d8" />
+          <text x="272" y="195" fill="#3f3f46" font-size="11.5" font-weight="600">API Checkout</text>
+
+          <text x="40" y="252" fill="#71717a" font-size="11.5">• Dependência entre equipes para qualquer entrega</text>
+          <text x="40" y="274" fill="#71717a" font-size="11.5">• Publicação única para toda a interface</text>
+
+          <!-- Right Box -->
+          <rect x="410" y="10" width="400" height="290" rx="10" fill="#ffffff" stroke="#e4e4e0" />
+          <text x="430" y="38" fill="#0f766e" font-size="13" font-weight="700">Com Micro Frontends (Equipes Verticais)</text>
+
+          <rect x="430" y="56" width="360" height="36" rx="6" fill="#f4f4f5" stroke="#d4d4d8" />
+          <text x="505" y="79" fill="#18181b" font-size="11.5" font-weight="600">Aplicação Base (Integra as partes na tela)</text>
+
+          <!-- Squad 1 -->
+          <rect x="430" y="106" width="112" height="174" rx="8" fill="#eff6ff" stroke="#bfdbfe" />
+          <text x="448" y="128" fill="#1d4ed8" font-size="11" font-weight="700">Time Busca</text>
+          <rect x="440" y="140" width="92" height="42" rx="5" fill="#ffffff" stroke="#93c5fd" />
+          <text x="454" y="165" fill="#18181b" font-size="11" font-weight="600">UI Busca</text>
+          <rect x="440" y="194" width="92" height="42" rx="5" fill="#ffffff" stroke="#93c5fd" />
+          <text x="452" y="219" fill="#3f3f46" font-size="10.5">API + Dados</text>
+          <text x="445" y="262" fill="#1d4ed8" font-size="10" font-weight="600">Deploy próprio</text>
+
+          <!-- Squad 2 -->
+          <rect x="554" y="106" width="112" height="174" rx="8" fill="#f0fdfa" stroke="#99f6e4" />
+          <text x="568" y="128" fill="#0f766e" font-size="11" font-weight="700">Time Catálogo</text>
+          <rect x="564" y="140" width="92" height="42" rx="5" fill="#ffffff" stroke="#5eead4" />
+          <text x="576" y="165" fill="#18181b" font-size="11" font-weight="600">UI Produto</text>
+          <rect x="564" y="194" width="92" height="42" rx="5" fill="#ffffff" stroke="#5eead4" />
+          <text x="576" y="219" fill="#3f3f46" font-size="10.5">API + Dados</text>
+          <text x="569" y="262" fill="#0f766e" font-size="10" font-weight="600">Deploy próprio</text>
+
+          <!-- Squad 3 -->
+          <rect x="678" y="106" width="112" height="174" rx="8" fill="#fffbeb" stroke="#fde68a" />
+          <text x="690" y="128" fill="#b45309" font-size="11" font-weight="700">Time Checkout</text>
+          <rect x="688" y="140" width="92" height="42" rx="5" fill="#ffffff" stroke="#fcd34d" />
+          <text x="696" y="165" fill="#18181b" font-size="11" font-weight="600">UI Carrinho</text>
+          <rect x="688" y="194" width="92" height="42" rx="5" fill="#ffffff" stroke="#fcd34d" />
+          <text x="700" y="219" fill="#3f3f46" font-size="10.5">API + Dados</text>
+          <text x="693" y="262" fill="#b45309" font-size="10" font-weight="600">Deploy próprio</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 2. Vantagens e Desvantagens -->
+    <section>
+      <div class="section-header">
+        <span class="section-label" data-pt="Parte 2" data-en="Part 2">Parte 2</span>
+        <h2 class="section-title" data-pt="Vantagens e desvantagens" data-en="Pros and cons">Vantagens e desvantagens</h2>
+      </div>
+
+      <div class="pros-cons-grid">
+        <div class="pc-card pros">
+          <div class="pc-title">
+            <span data-pt="Vantagens" data-en="Advantages">Vantagens</span>
+          </div>
+          <ul class="pc-list">
+            <li>
+              <span class="pc-badge">+</span>
+              <span data-pt="<strong>Publicações independentes:</strong> Uma equipe consegue corrigir ou atualizar sua parte da tela sem depender do restante do sistema."
+                    data-en="<strong>Independent deployments:</strong> A team can fix or update its part of the screen without waiting on the rest of the system.">
+                <strong>Publicações independentes:</strong> Uma equipe consegue corrigir ou atualizar sua parte da tela sem depender do restante do sistema.
+              </span>
+            </li>
+            <li>
+              <span class="pc-badge">+</span>
+              <span data-pt="<strong>Códigos menores e mais fáceis de manter:</strong> Cada projeto front-end contém apenas o código daquela funcionalidade específica."
+                    data-en="<strong>Smaller, easier-to-maintain codebases:</strong> Each frontend repository only holds code for its specific business feature.">
+                <strong>Códigos menores e mais fáceis de manter:</strong> Cada projeto front-end contém apenas o código daquela funcionalidade específica.
+              </span>
+            </li>
+            <li>
+              <span class="pc-badge">+</span>
+              <span data-pt="<strong>Evolução gradual:</strong> Permite modernizar ou trocar tecnologias de uma área específica sem precisar reescrever o site inteiro."
+                    data-en="<strong>Gradual evolution:</strong> Allows modernizing or replacing technologies in one area without rewriting the whole site.">
+                <strong>Evolução gradual:</strong> Permite modernizar ou trocar tecnologias de uma área específica sem precisar reescrever o site inteiro.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pc-card cons">
+          <div class="pc-title">
+            <span data-pt="Desvantagens" data-en="Disadvantages">Desvantagens</span>
+          </div>
+          <ul class="pc-list">
+            <li>
+              <span class="pc-badge">−</span>
+              <span data-pt="<strong>Arquivos mais pesados para o usuário:</strong> Se cada equipe carregar suas próprias bibliotecas sem cuidado, o site fica mais lento para abrir."
+                    data-en="<strong>Heavier downloads for users:</strong> If each team bundles its own libraries carelessly, the page becomes slower to load.">
+                <strong>Arquivos mais pesados para o usuário:</strong> Se cada equipe carregar suas próprias bibliotecas sem cuidado, o site fica mais lento para abrir.
+              </span>
+            </li>
+            <li>
+              <span class="pc-badge">−</span>
+              <span data-pt="<strong>Risco de perda de padrão visual:</strong> Exige um guia de estilo compartilhado para que botões, fontes e cores não fiquem diferentes em cada parte."
+                    data-en="<strong>Risk of visual inconsistency:</strong> Requires a shared style guide so buttons, fonts, and colors don't diverge across sections.">
+                <strong>Risco de perda de padrão visual:</strong> Exige um guia de estilo compartilhado para que botões, fontes e cores não fiquem diferentes em cada parte.
+              </span>
+            </li>
+            <li>
+              <span class="pc-badge">−</span>
+              <span data-pt="<strong>Maior trabalho de configuração:</strong> É preciso manter vários repositórios, rotinas de testes e processos de deploy separados."
+                    data-en="<strong>Higher setup overhead:</strong> Teams must maintain multiple repositories, test suites, and deployment pipelines.">
+                <strong>Maior trabalho de configuração:</strong> É preciso manter vários repositórios, rotinas de testes e processos de deploy separados.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Impacto na Gestão do Projeto -->
+    <section>
+      <div class="section-header">
+        <span class="section-label" data-pt="Parte 3" data-en="Part 3">Parte 3</span>
+        <h2 class="section-title" data-pt="Impacto na gestão do projeto" data-en="Impact on project management">Impacto na gestão do projeto</h2>
+      </div>
+
+      <div class="pm-grid">
+        <div class="pm-card">
+          <div class="pm-card-header">
+            <span class="pm-pillar-title" data-pt="Prazo" data-en="Schedule">Prazo</span>
+            <span class="pm-level level-med" data-pt="Ganho em escala" data-en="Faster at scale">Ganho em escala</span>
+          </div>
+          <p data-pt="No começo exige mais tempo para estruturar a base que junta as telas. Depois de pronto, acelera o cronograma porque várias equipes conseguem entregar ao mesmo tempo sem fila de espera."
+             data-en="Takes more time initially to build the shell that integrates the screens. Once in place, it speeds up the schedule because multiple teams can deliver in parallel.">
+            No começo exige mais tempo para estruturar a base que junta as telas. Depois de pronto, acelera o cronograma porque várias equipes conseguem entregar ao mesmo tempo sem fila de espera.
+          </p>
+        </div>
+
+        <div class="pm-card">
+          <div class="pm-card-header">
+            <span class="pm-pillar-title" data-pt="Custo" data-en="Cost">Custo</span>
+            <span class="pm-level level-high" data-pt="Maior estrutura" data-en="Higher overhead">Maior estrutura</span>
+          </div>
+          <p data-pt="Aumenta o custo com automação e manutenção de múltiplos pipelines. Só se paga em projetos grandes; para sistemas pequenos com pouca gente, gera gasto desnecessário."
+             data-en="Increases automation and multi-pipeline maintenance costs. It only pays off in large projects; for small systems with few developers, it adds unnecessary expense.">
+            Aumenta o custo com automação e manutenção de múltiplos pipelines. Só se paga em projetos grandes; para sistemas pequenos com pouca gente, gera gasto desnecessário.
+          </p>
+        </div>
+
+        <div class="pm-card">
+          <div class="pm-card-header">
+            <span class="pm-pillar-title" data-pt="Equipe" data-en="Team">Equipe</span>
+            <span class="pm-level level-low" data-pt="Autonomia por área" data-en="Domain autonomy">Autonomia por área</span>
+          </div>
+          <p data-pt="Muda diretamente a forma de organizar as pessoas: em vez de um time só de front-end e outro só de back-end, formam-se equipes mistas focadas em cada área do produto."
+             data-en="Directly changes how people are organized: instead of separate frontend and backend teams, you form cross-functional teams focused on each product area.">
+            Muda diretamente a forma de organizar as pessoas: em vez de um time só de front-end e outro só de back-end, formam-se equipes mistas focadas em cada área do produto.
+          </p>
+        </div>
+
+        <div class="pm-card">
+          <div class="pm-card-header">
+            <span class="pm-pillar-title" data-pt="Riscos" data-en="Risks">Riscos</span>
+            <span class="pm-level level-med" data-pt="Padrão e desempenho" data-en="UX & performance">Padrão e desempenho</span>
+          </div>
+          <p data-pt="Reduz o risco de uma atualização derrubar o site todo, mas exige que a gestão acompanhe de perto a padronização visual e o desempenho da página para o usuário."
+             data-en="Reduces the risk of one update breaking the whole site, but requires management attention to visual consistency and page load performance.">
+            Reduz o risco de uma atualização derrubar o site todo, mas exige que a gestão acompanhe de perto a padronização visual e o desempenho da página para o usuário.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Link para o Post Original -->
+    <section class="original-banner">
+      <div>
+        <h3 style="font-size:1.05rem;margin-bottom:0.2rem;"
+            data-pt="4. Post Original de Referência"
+            data-en="4. Original Reference Post">4. Post Original de Referência</h3>
+        <p style="color:var(--text-muted);font-size:0.88rem;">
+          Cam Jackson (martinfowler.com) — Micro Frontends (martinfowler.com/articles/micro-frontends.html)
+        </p>
+      </div>
+      <a href="https://martinfowler.com/articles/micro-frontends.html" target="_blank" rel="noopener" class="btn btn-primary"
+         data-pt="Ler post original ↗"
+         data-en="Read original post ↗">
+        Ler post original ↗
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p data-pt="SENAI EAD • Gestão de Projetos • Eixo 2: Micro Frontends"
+       data-en="SENAI EAD • Project Management • Axis 2: Micro Frontends">
+      SENAI EAD • Gestão de Projetos • Eixo 2: Micro Frontends
+    </p>
+  </footer>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>

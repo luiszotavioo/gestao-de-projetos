@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arquitetura de Software e Gestão de Projetos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-dot"></span>
+        <span data-pt="Arquitetura & Gestão" data-en="Architecture & Management">Arquitetura & Gestão</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active" data-pt="Início" data-en="Home">Início</a>
+        <a href="eixo1-monolith-first.html" class="nav-link">Monolith First</a>
+        <a href="eixo2-micro-frontends.html" class="nav-link">Micro Frontends</a>
+        <a href="eixo3-layering.html" class="nav-link" data-pt="Camadas" data-en="Layering">Camadas</a>
+      </nav>
+
+      <div class="nav-controls">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" class="lang-btn active" data-lang="pt">PT</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow" data-pt="SENAI EAD • Gestão de Projetos" data-en="SENAI EAD • Project Management">SENAI EAD • Gestão de Projetos</span>
+      <h1 data-pt="Como escolhas de arquitetura de software moldam a gestão de um projeto"
+          data-en="How software architecture choices shape project management">
+        Como escolhas de arquitetura de software moldam a gestão de um projeto
+      </h1>
+      <p class="hero-subtitle"
+         data-pt="Um estudo prático baseado em três artigos de Martin Fowler, analisando como decisões de estrutura técnica afetam diretamente o prazo, o orçamento, a divisão das equipes e os riscos de entrega."
+         data-en="A practical study based on three articles by Martin Fowler, examining how technical structure decisions directly impact schedule, budget, team division, and delivery risks.">
+        Um estudo prático baseado em três artigos de Martin Fowler, analisando como decisões de estrutura técnica afetam diretamente o prazo, o orçamento, a divisão das equipes e os riscos de entrega.
+      </p>
+      <div class="hero-meta">
+        <a href="#artigos" class="btn btn-primary" data-pt="Ver os 3 artigos analisados" data-en="View the 3 analyzed articles">Ver os 3 artigos analisados</a>
+        <a href="#equipe" class="btn btn-outline" data-pt="Integrantes da equipe" data-en="Team members">Integrantes da equipe</a>
+      </div>
+    </section>
+
+    <!-- Os 3 Artigos -->
+    <section id="artigos">
+      <div class="section-header">
+        <span class="section-label" data-pt="Leituras Selecionadas" data-en="Selected Readings">Leituras Selecionadas</span>
+        <h2 class="section-title" data-pt="Um conceito de cada eixo arquitetural" data-en="One concept from each architectural axis">Um conceito de cada eixo arquitetural</h2>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Eixo 1 -->
+        <a href="eixo1-monolith-first.html" class="axis-card">
+          <div>
+            <span class="axis-tag tag-eixo1" data-pt="Eixo 1 • Microsserviços" data-en="Axis 1 • Microservices">Eixo 1 • Microsserviços</span>
+            <h3>Monolith First</h3>
+            <p data-pt="Começar com um monólito bem modularizado permite validar o produto com rapidez e descobrir onde estão as fronteiras reais antes de dividir em microsserviços."
+               data-en="Starting with a well-modularized monolith lets teams validate the product quickly and discover real domain boundaries before splitting into microservices.">
+              Começar com um monólito bem modularizado permite validar o produto com rapidez e descobrir onde estão as fronteiras reais antes de dividir em microsserviços.
+            </p>
+            <div class="mini-metrics">
+              <div class="mini-metric">
+                <span data-pt="Prazo Inicial" data-en="Initial Schedule">Prazo Inicial</span>
+                <strong data-pt="Entregas mais rápidas" data-en="Faster early delivery">Entregas mais rápidas</strong>
+              </div>
+              <div class="mini-metric">
+                <span data-pt="Ponto de Atenção" data-en="Watch Out For">Ponto de Atenção</span>
+                <strong data-pt="Manter modularidade" data-en="Keeping modularity">Manter modularidade</strong>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span data-pt="Ler resumo e impacto na gestão" data-en="Read summary & management impact">Ler resumo e impacto na gestão</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Eixo 2 -->
+        <a href="eixo2-micro-frontends.html" class="axis-card">
+          <div>
+            <span class="axis-tag tag-eixo2" data-pt="Eixo 2 • Fronteiras e Evolução" data-en="Axis 2 • Boundaries & Evolution">Eixo 2 • Fronteiras e Evolução</span>
+            <h3>Micro Frontends</h3>
+            <p data-pt="Divisão da interface web por áreas de negócio, permitindo que equipes diferentes desenvolvam e publiquem partes da tela de forma independente."
+               data-en="Slicing the web interface by business domain so independent teams can build and deploy parts of the UI autonomously.">
+              Divisão da interface web por áreas de negócio, permitindo que equipes diferentes desenvolvam e publiquem partes da tela de forma independente.
+            </p>
+            <div class="mini-metrics">
+              <div class="mini-metric">
+                <span data-pt="Organização" data-en="Organization">Organização</span>
+                <strong data-pt="Equipes independentes" data-en="Independent teams">Equipes independentes</strong>
+              </div>
+              <div class="mini-metric">
+                <span data-pt="Ponto de Atenção" data-en="Watch Out For">Ponto de Atenção</span>
+                <strong data-pt="Padronização visual" data-en="Visual consistency">Padronização visual</strong>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span data-pt="Ler resumo e impacto na gestão" data-en="Read summary & management impact">Ler resumo e impacto na gestão</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Eixo 3 -->
+        <a href="eixo3-layering.html" class="axis-card">
+          <div>
+            <span class="axis-tag tag-eixo3" data-pt="Eixo 3 • Camadas e Execução" data-en="Axis 3 • Layers & Execution">Eixo 3 • Camadas e Execução</span>
+            <h3>Presentation Domain Data Layering</h3>
+            <p data-pt="Separação do código entre tela (Presentation), regras de negócio (Domain) e banco de dados (Data), mantendo o sistema organizado e fácil de testar."
+               data-en="Separating code into Presentation, Domain logic, and Data access to keep the system organized and easy to test.">
+              Separação do código entre tela (Presentation), regras de negócio (Domain) e banco de dados (Data), mantendo o sistema organizado e fácil de testar.
+            </p>
+            <div class="mini-metrics">
+              <div class="mini-metric">
+                <span data-pt="Manutenção" data-en="Maintenance">Manutenção</span>
+                <strong data-pt="Código mais previsível" data-en="Predictable codebase">Código mais previsível</strong>
+              </div>
+              <div class="mini-metric">
+                <span data-pt="Ponto de Atenção" data-en="Watch Out For">Ponto de Atenção</span>
+                <strong data-pt="Dividir por domínio antes" data-en="Group by domain first">Dividir por domínio antes</strong>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span data-pt="Ler resumo e impacto na gestão" data-en="Read summary & management impact">Ler resumo e impacto na gestão</span>
+            <span>→</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Quadro Comparativo -->
+    <section>
+      <div class="section-header">
+        <span class="section-label" data-pt="Síntese" data-en="Overview">Síntese</span>
+        <h2 class="section-title" data-pt="Comparativo de impacto na gestão do projeto" data-en="Project management impact comparison">Comparativo de impacto na gestão do projeto</h2>
+      </div>
+
+      <div class="comparison-table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th data-pt="Conceito" data-en="Concept">Conceito</th>
+              <th data-pt="Prazo" data-en="Schedule">Prazo</th>
+              <th data-pt="Custo" data-en="Cost">Custo</th>
+              <th data-pt="Equipe" data-en="Team">Equipe</th>
+              <th data-pt="Riscos" data-en="Risks">Riscos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Monolith First</strong></td>
+              <td data-pt="Acelera as primeiras entregas por não exigir infraestrutura distribuída." data-en="Speeds up early delivery by avoiding distributed infrastructure.">Acelera as primeiras entregas por não exigir infraestrutura distribuída.</td>
+              <td data-pt="Menor custo inicial de servidores e operação." data-en="Lower upfront server and operational costs.">Menor custo inicial de servidores e operação.</td>
+              <td data-pt="Funciona muito bem para equipes pequenas e médias no mesmo código." data-en="Works well for small-to-medium teams sharing one codebase.">Funciona muito bem para equipes pequenas e médias no mesmo código.</td>
+              <td data-pt="Código ficar emaranhado se a equipe não cuidar da divisão interna." data-en="Code becoming tangled if internal boundaries are ignored.">Código ficar emaranhado se a equipe não cuidar da divisão interna.</td>
+            </tr>
+            <tr>
+              <td><strong>Micro Frontends</strong></td>
+              <td data-pt="Exige mais tempo no início, mas destrava entregas paralelas depois." data-en="Takes longer upfront, but unlocks parallel releases later.">Exige mais tempo no início, mas destrava entregas paralelas depois.</td>
+              <td data-pt="Aumenta o custo com pipelines de deploy e governança." data-en="Increases costs for deployment pipelines and governance.">Aumenta o custo com pipelines de deploy e governança.</td>
+              <td data-pt="Ideal quando há várias equipes trabalhando em partes distintas do produto." data-en="Ideal when multiple teams work on distinct product areas.">Ideal quando há várias equipes trabalhando em partes distintas do produto.</td>
+              <td data-pt="Telas ficarem visualmente diferentes ou pesadas para o usuário." data-en="Screens becoming visually inconsistent or heavy for users.">Telas ficarem visualmente diferentes ou pesadas para o usuário.</td>
+            </tr>
+            <tr>
+              <td><strong>Presentation-Domain-Data</strong></td>
+              <td data-pt="Mantém o ritmo de entregas estável conforme o projeto cresce." data-en="Keeps delivery pace steady as the project grows.">Mantém o ritmo de entregas estável conforme o projeto cresce.</td>
+              <td data-pt="Reduz gastos com retrabalho e facilita testes automatizados." data-en="Reduces rework expenses and simplifies automated testing.">Reduz gastos com retrabalho e facilita testes automatizados.</td>
+              <td data-pt="Facilita a divisão de tarefas entre interface, regra e dados." data-en="Clarifies responsibilities across UI, business rules, and data.">Facilita a divisão de tarefas entre interface, regra e dados.</td>
+              <td data-pt="Criar burocracia desnecessária caso o sistema seja muito simples." data-en="Adding unnecessary ceremony if the system is very simple.">Criar burocracia desnecessária caso o sistema seja muito simples.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Integrantes -->
+    <section id="equipe">
+      <div class="section-header">
+        <span class="section-label" data-pt="Autoria e Publicação" data-en="Authorship & Publication">Autoria e Publicação</span>
+        <h2 class="section-title" data-pt="Integrantes da equipe" data-en="Team members">Integrantes da equipe</h2>
+      </div>
+
+      <div id="equipe-cards" class="team-grid">
+        <div class="member-card">
+          <div class="avatar">LS</div>
+          <div class="member-info">
+            <h4>Luis Otávio de Deus dos Santos</h4>
+            <p data-pt="Integrante da Equipe • Gestão de Projetos" data-en="Team Member • Project Management">Integrante da Equipe • Gestão de Projetos</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="avatar">VC</div>
+          <div class="member-info">
+            <h4>Vyttor Gabriel Ramos Camillo</h4>
+            <p data-pt="Integrante da Equipe • Gestão de Projetos" data-en="Team Member • Project Management">Integrante da Equipe • Gestão de Projetos</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="avatar">YL</div>
+          <div class="member-info">
+            <h4>Yasmin Siqueira Lobo</h4>
+            <p data-pt="Integrante da Equipe • Gestão de Projetos" data-en="Team Member • Project Management">Integrante da Equipe • Gestão de Projetos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p data-pt="Trabalho desenvolvido para a UC de Gestão de Projetos (SENAI EAD) • Baseado nos artigos de Martin Fowler."
+       data-en="Built for the Project Management course (SENAI EAD) • Based on articles by Martin Fowler.">
+      Trabalho desenvolvido para a UC de Gestão de Projetos (SENAI EAD) • Baseado nos artigos de Martin Fowler.
+    </p>
+  </footer>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>
